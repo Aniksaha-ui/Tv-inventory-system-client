@@ -1,5 +1,5 @@
 import React from "react";
-import CustomLink from "../CustomLink/CustomLink";
+import CustomLink from "../../CustomLink/CustomLink";
 
 const Header = () => {
   return (
@@ -28,21 +28,19 @@ const Header = () => {
                   Home
                 </CustomLink>
               </li>
-
               <li className="nav-item">
-                <CustomLink className="nav-link" to="/services">
-                  Services
+                <CustomLink className="nav-link" to="/review">
+                  Review
                 </CustomLink>
               </li>
               <li className="nav-item">
-                <CustomLink className="nav-link" to="/about">
-                  About
+                <CustomLink className="nav-link" to="/dashboard">
+                  Dashboard
                 </CustomLink>
               </li>
-
               <li className="nav-item">
-                <CustomLink className="nav-link" to="/login">
-                  Login
+                <CustomLink className="nav-link" to="/blog">
+                  Blog
                 </CustomLink>
               </li>
             </ul>
