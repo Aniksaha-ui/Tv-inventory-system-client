@@ -1,9 +1,18 @@
 import React from "react";
+import useProduct from "../../../Hooks/useProduct";
+import Product from "../Product/Product";
 
 const Products = () => {
+  const [products, setProducts] = useProduct();
+
   return (
-    <div>
-      <h3>This is for Products</h3>
+    <div class="container mt-5">
+      <h3>Product Informations</h3>
+      <div class="row row-cols-lg-3 row-cols-1 g-2 g-lg-3 mt-3">
+        {products.slice(0, 6).map((product) => (
+          <Product product={product} key={product._id} />
+        ))}
+      </div>
     </div>
   );
 };
