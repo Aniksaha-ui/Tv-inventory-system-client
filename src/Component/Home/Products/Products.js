@@ -6,9 +6,9 @@ const Products = () => {
   const [products, setProducts] = useProduct();
 
   return (
-    <div class="container mt-5">
+    <div className="container mt-5">
       <h3>Product Informations</h3>
-      <div class="row row-cols-lg-3 row-cols-1 g-2 g-lg-3 mt-3">
+      <div className="row row-cols-lg-3 row-cols-1 g-2 g-lg-3 mt-3">
         {products.slice(0, 6).map((product) => (
           <Product product={product} key={product._id} />
         ))}
