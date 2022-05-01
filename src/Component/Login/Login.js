@@ -4,6 +4,7 @@ import "./Login.css";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,11 +19,17 @@ const Login = () => {
   const passwordRef = useRef("");
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post(
+      "https://guarded-spire-69476.herokuapp.com/login",
+      { email }
+    );
+    // console.log(data);
+    localStorage.setItem("accessToken", data.accessToken);
   };
 
   if (user) {
