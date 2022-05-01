@@ -1,12 +1,36 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../Shared/Loading/Loading";
+
 const Login = () => {
   const navigate = useNavigate();
   const handleRegister = () => {
     navigate("/register");
   };
 
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    signInWithEmailAndPassword(email, password);
+  };
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+  if (loading) {
+    <Loading />;
+  }
   return (
     <div className="container">
       <div className="row mt-3">
@@ -16,9 +40,10 @@ const Login = () => {
               <h5 className="card-title text-center mb-5 fw-light fs-5">
                 Sign In
               </h5>
-              <form>
+              <form onSubmit={handleLogin}>
                 <div className="form-floating mb-3">
                   <input
+                    ref={emailRef}
                     type="email"
                     className="form-control"
                     id="floatingInput"
@@ -28,6 +53,7 @@ const Login = () => {
                 </div>
                 <div className="form-floating mb-3">
                   <input
+                    ref={passwordRef}
                     type="password"
                     className="form-control"
                     id="floatingPassword"

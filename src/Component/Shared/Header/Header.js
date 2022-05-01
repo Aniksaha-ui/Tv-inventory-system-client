@@ -55,11 +55,13 @@ const Header = () => {
                   Logout
                 </button>
               ) : (
-                <li className="nav-item">
-                  <CustomLink className="nav-link" to="/Login">
-                    Login
-                  </CustomLink>
-                </li>
+                <>
+                  <li className="nav-item">
+                    <CustomLink className="nav-link" to="/Login">
+                      Login
+                    </CustomLink>
+                  </li>
+                </>
               )}
             </ul>
           </div>
