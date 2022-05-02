@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import axios from "axios";
-import ProductDetails from "../ProductDetails/ProductDetails";
+import { signOut } from "firebase/auth";
 
 const Inventory = () => {
   const param = useParams();
   const id = param.id;
   const [user] = useAuthState(auth);
   const [product, setProduct] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -23,16 +24,22 @@ const Inventory = () => {
         });
 
         setProduct(data);
-      } catch {}
+      } catch (error) {
+        console.log(error);
+        if (error.response.status === 401 || error.response.status === 403) {
+          signOut(auth);
+          navigate("/login");
+        }
+      }
     };
 
     getProduct();
   }, [user]);
 
   return (
-    <>
-      <ProductDetails />
-    </>
+    <div>
+      <h3>{product.name}</h3>
+    </div>
   );
 };
 
