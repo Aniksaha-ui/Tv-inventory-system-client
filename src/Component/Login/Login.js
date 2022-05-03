@@ -25,7 +25,7 @@ const Login = () => {
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
     const { data } = await axios.post(
-      "https://guarded-spire-69476.herokuapp.com/login",
+      "https://powerful-temple-45584.herokuapp.com/login",
       { email }
     );
     // console.log(data);

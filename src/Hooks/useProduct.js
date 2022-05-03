@@ -6,7 +6,7 @@ const useProduct = () => {
 
   useEffect(() => {
     axios
-      .get("https://guarded-spire-69476.herokuapp.com/product")
+      .get("https://powerful-temple-45584.herokuapp.com/product")
       .then((res) => setProducts(res.data));
   }, []);
   return [products, setProducts];
