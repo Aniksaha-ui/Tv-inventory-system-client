@@ -16,7 +16,7 @@ const Inventory = () => {
   useEffect(() => {
     const getProduct = async () => {
       const email = user.email;
-      const url = `https://powerful-temple-45584.herokuapp.com/product/${id}?email=${email}`;
+      const url = `https://vast-reaches-25407.herokuapp.com/product/${id}?email=${email}`;
       try {
         const { data } = await axios.get(url, {
           headers: {

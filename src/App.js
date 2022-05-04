@@ -3,6 +3,8 @@ import "./App.css";
 import Home from "./Component/Home/Home/Home";
 import Inventory from "./Component/Inventory/Inventory";
 import Login from "./Component/Login/Login";
+import ManageInventory from "./Component/ManageInventory/ManageInventory";
+import MyItem from "./Component/MyItem/MyItem";
 import Register from "./Component/Register/Register";
 import RequireAuth from "./Component/RequireAuth/RequireAuth";
 import Header from "./Component/Shared/Header/Header";
@@ -23,6 +25,10 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+
+        <Route path="/manage" element={<ManageInventory />}></Route>
+
+        <Route path="/myItem" element={<MyItem />}></Route>
       </Routes>
     </div>
   );

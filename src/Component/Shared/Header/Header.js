@@ -36,13 +36,13 @@ const Header = () => {
                 </CustomLink>
               </li>
               <li className="nav-item">
-                <CustomLink className="nav-link" to="/review">
-                  Review
+                <CustomLink className="nav-link" to="/manage">
+                  Manage Inventory
                 </CustomLink>
               </li>
               <li className="nav-item">
-                <CustomLink className="nav-link" to="/dashboard">
-                  Dashboard
+                <CustomLink className="nav-link" to="/myItem">
+                  My Item
                 </CustomLink>
               </li>
               <li className="nav-item">
