@@ -1,10 +1,29 @@
 import React from "react";
+import { toast, ToastContainer } from "react-toastify";
 import useProduct from "../../Hooks/useProduct";
-import ShowInventoryProducts from "../ShowInventoryProducts/ShowInventoryProducts";
+import "react-toastify/dist/ReactToastify.css";
+
 const ManageInventory = () => {
   const [products, setProducts] = useProduct();
-  // const { _id, name, price, quantity, img } = products;
-  // console.log(products);
+  const handleDelete = (id) => {
+    const url = `http://localhost:4000/product/${id}`;
+    const confirm = window.confirm("Are You Sure?");
+    if (confirm) {
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("data deleted", data);
+          const remaining = products.filter((product) => product._id !== id);
+          setProducts(remaining);
+          if (data.acknowledged) {
+            toast("Data Deleted Successfully");
+          }
+        });
+    } else {
+    }
+  };
   return (
     <>
       <h3 className="mt-3">Products -{products.length}</h3>
@@ -25,10 +44,32 @@ const ManageInventory = () => {
           </thead>
           <tbody>
             {products.map((product) => (
-              <ShowInventoryProducts product={product} key={product._id} />
+              <tr key={product._id}>
+                <td>{product.name}</td>
+                <td>{product.quantity}</td>
+                <td>{product.price}</td>
+                <td>
+                  <img
+                    width="90px"
+                    className="img-fluid"
+                    src={product.img}
+                    alt=""
+                  />
+                </td>
+
+                <td>
+                  <button
+                    onClick={() => handleDelete(product._id)}
+                    className="btn-danger"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>
+        <ToastContainer />
       </div>
     </>
   );
