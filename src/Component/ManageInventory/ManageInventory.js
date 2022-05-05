@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 const ManageInventory = () => {
   const [products, setProducts] = useProduct();
   const handleDelete = (id) => {
-    const url = `http://localhost:4000/product/${id}`;
+    const url = `https://vast-reaches-25407.herokuapp.com/product/${id}`;
     const confirm = window.confirm("Are You Sure?");
     if (confirm) {
       fetch(url, {
