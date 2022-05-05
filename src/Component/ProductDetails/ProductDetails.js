@@ -2,11 +2,13 @@ import { async } from "@firebase/util";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 import "./ProductDetails.css";
 const ProductDetails = (props) => {
+  const navigate = useNavigate();
   const { _id, name, email, quantity, description, img, price, supplierName } =
     props.product;
 
@@ -67,6 +69,11 @@ const ProductDetails = (props) => {
       });
   };
 
+  //redirect to management
+  const handleManageInventory = () => {
+    navigate("/manage");
+  };
+
   return (
     <>
       <h3 className="text-center text-primary mt-5">Product Details</h3>
@@ -98,8 +105,16 @@ const ProductDetails = (props) => {
                   </p>
                 </div>
 
-                <div className="d-flex align-item-center justify-content-center">
-                  <p className="card-text "></p>
+                <div className="d-flex align-item-center justify-content-between">
+                  <p className="card-text">
+                    <button
+                      onClick={handleManageInventory}
+                      className="btn btn-primary rounded"
+                    >
+                      Manage Inventiory
+                    </button>
+                  </p>
+
                   <p className="card-text">
                     <button
                       onClick={() => handleDeliveryQuantity(_id)}
