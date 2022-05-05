@@ -1,9 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useProduct from "../../../Hooks/useProduct";
 import Product from "../Product/Product";
 
 const Products = () => {
   const [products, setProducts] = useProduct();
+  const navigate = useNavigate();
+  const handleManageInventory = () => {
+    navigate("/manage");
+  };
 
   return (
     <div className="container mt-5">
@@ -13,6 +18,12 @@ const Products = () => {
           <Product product={product} key={product._id} />
         ))}
       </div>
+      <button
+        onClick={handleManageInventory}
+        className="btn btn-danger mt-3 mb-4"
+      >
+        Manage Inventories
+      </button>
     </div>
   );
 };

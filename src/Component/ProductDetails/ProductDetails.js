@@ -116,7 +116,7 @@ const ProductDetails = (props) => {
         </div>
       </div>
       {/* product quantity manage */}
-      <h3 className="text-center text-primary mt-4">Restock Quantity</h3>
+      <h3 className="text-center text-primary">Restock Quantity</h3>
       <div className="container">
         <div className="row">
           <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
