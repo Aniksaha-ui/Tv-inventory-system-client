@@ -35,25 +35,28 @@ const Header = () => {
                   Home
                 </CustomLink>
               </li>
-              <li className="nav-item">
-                <CustomLink className="nav-link" to="/manage">
-                  Manage Inventory
-                </CustomLink>
-              </li>
-              <li className="nav-item">
-                <CustomLink className="nav-link" to="/myItem">
-                  My Item
-                </CustomLink>
-              </li>
+
               <li className="nav-item">
                 <CustomLink className="nav-link" to="/blog">
                   Blog
                 </CustomLink>
               </li>
               {user ? (
-                <button onClick={handleLogout} className="btn btn-danger">
-                  Logout
-                </button>
+                <>
+                  <li className="nav-item">
+                    <CustomLink className="nav-link" to="/manage">
+                      Manage Inventory
+                    </CustomLink>
+                  </li>
+                  <li className="nav-item">
+                    <CustomLink className="nav-link" to="/myItem">
+                      My Item
+                    </CustomLink>
+                  </li>
+                  <button onClick={handleLogout} className="btn btn-danger">
+                    Logout
+                  </button>
+                </>
               ) : (
                 <>
                   <li className="nav-item">

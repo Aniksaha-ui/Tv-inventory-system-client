@@ -36,6 +36,7 @@ const Login = () => {
     navigate(from, { replace: true });
   }
   if (loading) {
+    console.log(loading);
     <Loading />;
   }
   return (
