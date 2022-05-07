@@ -31,6 +31,7 @@ const Login = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
+    //signIn with email and password
     signInWithEmailAndPassword(email, password);
     const getData = async () => {
       const { data } = await axios.post(
