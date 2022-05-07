@@ -8,6 +8,7 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,22 +18,41 @@ const Login = () => {
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, error1] =
+    useSendPasswordResetEmail(auth);
 
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  const handleLogin = async (e) => {
+
+  //handle login
+  const handleLogin = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post(
-      "https://vast-reaches-25407.herokuapp.com/login",
-      { email }
-    );
-    // console.log(data);
-    localStorage.setItem("accessToken", data.accessToken);
+    signInWithEmailAndPassword(email, password);
+    const getData = async () => {
+      const { data } = await axios.post(
+        "https://vast-reaches-25407.herokuapp.com/login",
+        { email }
+      );
+      // console.log(data);
+      localStorage.setItem("accessToken", data.accessToken);
+    };
+    getData();
+  };
+
+  //reset password link
+  const resetPassword = async (e) => {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Sent email");
+    } else {
+      toast("please enter your email address");
+    }
   };
 
   if (user) {
@@ -108,9 +128,16 @@ const Login = () => {
                     Register Now
                   </button>
                 </div>
+                <div className="d-flex align-items-center justify-content-between mt-2">
+                  <p className="mt-2">Have you forget your password?</p>
+                  <button onClick={resetPassword} className="btn btn-danger">
+                    Forget Password?
+                  </button>
+                </div>
                 <hr className="my-4" />
                 <SocialLogin />
               </form>
+              <hr />
 
               <ToastContainer />
             </div>
