@@ -37,8 +37,8 @@ const Header = () => {
               </li>
 
               <li className="nav-item">
-                <CustomLink className="nav-link" to="/blog">
-                  Blog
+                <CustomLink className="nav-link" to="/blogs">
+                  Blogs
                 </CustomLink>
               </li>
               {user ? (
