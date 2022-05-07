@@ -5,6 +5,9 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -36,9 +39,13 @@ const Login = () => {
     navigate(from, { replace: true });
   }
   if (loading) {
-    console.log(loading);
-    <Loading />;
+    return <Loading />;
   }
+
+  if (error) {
+    toast(error.message.slice(15, 40));
+  }
+
   return (
     <div className="container">
       <div className="row mt-3">
@@ -102,24 +109,10 @@ const Login = () => {
                   </button>
                 </div>
                 <hr className="my-4" />
-                <div className="d-grid mb-2">
-                  <button
-                    className="btn btn-google btn-login text-uppercase fw-bold"
-                    type="submit"
-                  >
-                    <i className="fab fa-google me-2"></i> Sign in with Google
-                  </button>
-                </div>
-                <div className="d-grid">
-                  <button
-                    className="btn btn-facebook btn-login text-uppercase fw-bold"
-                    type="submit"
-                  >
-                    <i className="fab fa-facebook-f me-2"></i> Sign in with
-                    Facebook
-                  </button>
-                </div>
+                <SocialLogin />
               </form>
+
+              <ToastContainer />
             </div>
           </div>
         </div>

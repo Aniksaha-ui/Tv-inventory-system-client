@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useProduct from "../../../Hooks/useProduct";
+import Loading from "../../Shared/Loading/Loading";
 import Product from "../Product/Product";
 
 const Products = () => {
+  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useProduct();
 
+  useEffect(() => {
+    setLoading(false);
+  }, [products]);
   const navigate = useNavigate();
   const handleManageInventory = () => {
     navigate("/manage");
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div>
