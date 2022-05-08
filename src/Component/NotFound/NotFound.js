@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const NotFound = () => {
   return (
     <div className="container w-75 me-5 mt-5">
-      <div className="card" style={{ width: "60rem" }}>
+      <div className="card">
         <div className="d-flex align-items-center justify-content-center p-3">
           <img
-            width="550"
-            src="https://cdn4.vectorstock.com/i/1000x1000/60/73/page-not-found-error-404-template-vector-14996073.jpg   "
+            width="300"
+            src="https://cdn4.vectorstock.com/i/1000x1000/60/73/page-not-found-error-404-template-vector-14996073.jpg"
             className="img-fluid"
             alt="..."
           />

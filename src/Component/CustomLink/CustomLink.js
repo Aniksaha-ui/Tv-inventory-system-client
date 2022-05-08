@@ -10,7 +10,6 @@ function CustomLink({ children, to, ...props }) {
       <Link
         style={{
           color: match ? "white" : "black",
-          fontSize: match ? "20px" : "15px",
         }}
         to={to}
         {...props}

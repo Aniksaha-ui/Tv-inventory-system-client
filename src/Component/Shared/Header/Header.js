@@ -65,8 +65,8 @@ const Header = () => {
               ) : (
                 <>
                   <li className="nav-item">
-                    <CustomLink className="nav-link" to="/Login">
-                      Login
+                    <CustomLink className="nav-link" to="/login">
+                      login
                     </CustomLink>
                   </li>
                 </>
