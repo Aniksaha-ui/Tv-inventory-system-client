@@ -33,10 +33,7 @@ const ManageInventory = () => {
 
   return (
     <div className="container">
-      <div
-        className="container d-flex align-items-center justify-content-between mt-3"
-        style={{ width: "1080px" }}
-      >
+      <div className="container d-flex align-items-center justify-content-between mt-3">
         <h3 className="mt-1">Number of total Products - {products.length}</h3>
         <div onClick={handleAddProduct} className="btn btn-danger ms-5">
           Add Product
