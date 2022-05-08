@@ -3,11 +3,11 @@ import React from "react";
 const Blog = () => {
   return (
     <div className="container">
-      <div class="card mt-5 bg-info">
-        <div class="card-body text-white">
+      <div className="card mt-5 bg-info">
+        <div className="card-body text-white">
           <h3>Difference between javascript and nodejs?</h3>
         </div>
-        <div class="card-body text-white">
+        <div className="card-body text-white">
           <p>
             Javascript is a pure programming language.It basically used for
             client-side,capable to add Html and play with Document Object
@@ -18,11 +18,11 @@ const Blog = () => {
         </div>
       </div>
 
-      <div class="card mt-3 bg-primary">
-        <div class="card-body text-white">
+      <div className="card mt-3 bg-primary">
+        <div className="card-body text-white">
           <h3>Differences between sql and nosql Databases?</h3>
         </div>
-        <div class="card-body text-white">
+        <div className="card-body text-white">
           <p>
             Sql is relational Database which use Structed Programming
             Language.SQL database are table-based.On the other hand,nosql is
@@ -32,11 +32,11 @@ const Blog = () => {
         </div>
       </div>
 
-      <div class="card mt-3 bg-info">
-        <div class="card-body text-white">
+      <div className="card mt-3 bg-info">
+        <div className="card-body text-white">
           <h3>What is the purpose of jwt and how does it work?</h3>
         </div>
-        <div class="card-body text-white">
+        <div className="card-body text-white">
           <p>
             The purpose of the jwt is to Authorization.It shared security
             information between Client and Server. When a user login,the server
