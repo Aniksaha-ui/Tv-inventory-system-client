@@ -11,7 +11,7 @@ const Product = (props) => {
   };
   return (
     <div className="col">
-      <div className="p-3 border bg-info">
+      <div className="p-3 border bg-dark">
         <div className="card h-100 w-100" style={{ width: "18rem" }}>
           <img src={img} className="card-img-top" alt="..." />
           <div className="card-body">

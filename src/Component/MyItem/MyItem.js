@@ -57,7 +57,9 @@ const MyItem = () => {
 
   return (
     <div className="container">
-      <h3 className="mt-3">Products -{products.length}</h3>
+      <h3 className="mt-3 text-primary">
+        You Added -{products.length} product
+      </h3>
       <div className="d-flex align-items-center justify-content-center mt-3">
         <table className="table table-dark" style={{ width: "1080px" }}>
           <thead>

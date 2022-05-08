@@ -15,7 +15,7 @@ const Products = () => {
   return (
     <div>
       <div className="container mt-5">
-        <h3>Product Informations</h3>
+        <h3 className="text-primary">Product Informations</h3>
         {products.length > 0 ? (
           <div className="row row-cols-lg-3 row-cols-1 g-2 g-lg-3 mt-3">
             <>

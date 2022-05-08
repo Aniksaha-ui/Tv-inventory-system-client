@@ -33,9 +33,11 @@ const ManageInventory = () => {
 
   return (
     <div className="container">
-      <div className="container d-flex align-items-center justify-content-between mt-3">
-        <h3 className="mt-1">Number of total Products - {products.length}</h3>
-        <div onClick={handleAddProduct} className="btn btn-danger ms-5">
+      <div className="d-flex align-items-center justify-content-center mt-3">
+        <h3 className="mt-1 text-primary">
+          Number of total Products - {products.length}
+        </h3>
+        <div onClick={handleAddProduct} className="btn btn-success ms-5">
           Add Product
         </div>
       </div>

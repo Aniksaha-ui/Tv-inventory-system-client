@@ -53,6 +53,11 @@ const Header = () => {
                       My Item
                     </CustomLink>
                   </li>
+                  <li className="nav-item">
+                    <CustomLink className="nav-link" to="/addproduct">
+                      Add New
+                    </CustomLink>
+                  </li>
                   <button onClick={handleLogout} className="btn btn-danger">
                     Logout
                   </button>
