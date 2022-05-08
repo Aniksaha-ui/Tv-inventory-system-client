@@ -111,12 +111,11 @@ const Register = () => {
                   </button>
                 </div>
                 <br />
-                <div className="d-grid">
-                  <button
-                    onClick={handleLogin}
-                    className="btn btn-facebook btn-login text-uppercase fw-bold"
-                  >
-                    Login
+
+                <div className="d-flex align-items-center justify-content-between mt-2">
+                  <p className="mt-2">Already have an account?</p>
+                  <button onClick={handleLogin} className="btn btn-danger">
+                    Login Now
                   </button>
                 </div>
                 <hr className="my-4" />

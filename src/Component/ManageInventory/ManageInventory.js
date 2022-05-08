@@ -32,7 +32,7 @@ const ManageInventory = () => {
   };
 
   return (
-    <>
+    <div className="container">
       <div
         className="container d-flex align-items-center justify-content-between mt-3"
         style={{ width: "1080px" }}
@@ -86,7 +86,7 @@ const ManageInventory = () => {
         </table>
         <ToastContainer />
       </div>
-    </>
+    </div>
   );
 };
 

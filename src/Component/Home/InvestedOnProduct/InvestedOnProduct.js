@@ -15,10 +15,10 @@ const InvestedOnProduct = () => {
 
   const [products, setProducts] = useProduct();
   return (
-    <>
+    <div className="container">
       <h3 className="mt-5 text-primary">Investement On Indiviual Product</h3>
 
-      <div className="container d-flex align-items-center justify-content-center mt-4">
+      <div className="d-flex align-items-center justify-content-center mt-4">
         <table className="table table-dark">
           <thead>
             <tr>
@@ -68,7 +68,7 @@ const InvestedOnProduct = () => {
           )}
         </table>
       </div>
-    </>
+    </div>
   );
 };
 
